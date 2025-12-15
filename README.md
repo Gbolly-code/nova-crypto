@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Crypto Checkout UI
 
-## Getting Started
+Frontend implementation of a simple crypto checkout flow (similar to Stripe Checkout, but for crypto) using **Next.js 16** and **TypeScript**.
 
-First, run the development server:
+Implemented screens:
+- `Recipient Details` – form to capture recipient email and phone number
+- `Send ETH` – payment instruction screen with address, payment details, and confirmation button
+
+---
+
+## Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Open the app**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Visit `http://localhost:3000` in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Key routes:
+- `/recipient-details` – Recipient details form (email + phone number with country code)
+- `/send-eth` – Send ETH instructions page shown after clicking **Next**
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4 (utility classes)
+- **Icons / Flags**: `country-flag-icons` for country flags
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Assumptions & Trade-offs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Frontend-only**: No backend or real payment integration. All data (amount, network, wallet, address) is mocked on the client.
+- **Flow**: Simple linear flow – `Recipient Details` → `Send ETH` page. State is not persisted across reloads.
+- **Validation**:
+  - Email: basic format check using a simple regex.
+  - Phone: basic length check after stripping non-numeric characters.
+  These are intentionally minimal to keep focus on UI and component structure.
+- **Country list**: Only a subset of countries is included for the dropdown (enough to demonstrate the UX).
+- **Accessibility**: Inputs and buttons have labels and focus styles, but the app is not a full accessibility audit.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Running Linting
+
+```bash
+npm run lint
+```
+
+---
+
+## Deployment
+
+This app is designed to be deployed on **Vercel**:
+
+1. Push the project to a GitHub repository.
+2. Go to Vercel, import the GitHub repo, and select the project.
+3. Accept the default Next.js settings and deploy.
+
+Vercel will automatically build and provide a live URL you can share as part of the assessment.
+
