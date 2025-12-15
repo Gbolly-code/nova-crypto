@@ -23,10 +23,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   const inputId = `phone-${label.toLowerCase().replace(/\s+/g, '-')}`;
 
   const formatPhoneNumber = (value: string) => {
-    // Remove all non-digits
     const digits = value.replace(/\D/g, '');
-    
-    // Format as XXX - XXX - XXXXX
     if (digits.length <= 3) return digits;
     if (digits.length <= 6) return `${digits.slice(0, 3)} - ${digits.slice(3)}`;
     return `${digits.slice(0, 3)} - ${digits.slice(3, 6)} - ${digits.slice(6, 11)}`;

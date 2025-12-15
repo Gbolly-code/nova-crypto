@@ -73,9 +73,5 @@ npm run lint
 
 This app is designed to be deployed on **Vercel**:
 
-1. Push the project to a GitHub repository.
-2. Go to Vercel, import the GitHub repo, and select the project.
-3. Accept the default Next.js settings and deploy.
 
-Vercel will automatically build and provide a live URL you can share as part of the assessment.
 

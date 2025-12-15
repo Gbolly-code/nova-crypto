@@ -10,18 +10,9 @@ import { useRouter } from 'next/navigation';
 export default function SendEthPage() {
   const router = useRouter();
 
-  const handleCopyAddress = () => {
-    console.log('Address copied');
-  };
-
-  const handleCopyAmount = () => {
-    console.log('Amount copied');
-  };
-
-  const handleSent = () => {
-    console.log('Payment sent');
-    // Navigate to next page or handle completion
-  };
+  const handleCopyAddress = () => {};
+  const handleCopyAmount = () => {};
+  const handleSent = () => {};
 
   return (
     <div className="min-h-screen bg-white w-full flex flex-col">
@@ -29,14 +20,14 @@ export default function SendEthPage() {
         <Header title="Send ETH to the address below" />
         
         <div className="space-y-8">
-          <div className="w-1/2 mx-auto">
+          <div className="flex justify-center">
             <AddressInput
               value="4LiV4YjbxsL6739MKghUd"
               onCopy={handleCopyAddress}
             />
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-4">
+          <div className="mx-auto w-full max-w-[512px] min-h-[144px] rounded-[10px] bg-gray-50 px-6 py-4 flex flex-col gap-6">
             <PaymentDetailRow
               label="Amount to send"
               value="100 ETH"
@@ -58,7 +49,7 @@ export default function SendEthPage() {
       </div>
 
       <div className="fixed bottom-10 left-0 right-0 bg-white">
-        <div className="max-w-2xl mx-auto px-6 pt-2 pb-4">
+        <div className="max-w-2xl mx-auto px-6 pt-2 pb-4 flex justify-center">
           <Button type="button" onClick={handleSent} className="text-lg">
             I have sent it
           </Button>

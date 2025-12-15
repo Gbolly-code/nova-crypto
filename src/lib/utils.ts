@@ -1,10 +1,3 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 export const countryCodes: Array<{ code: string; dialCode: string; name: string }> = [
   { code: "NG", dialCode: "+234", name: "Nigeria" },
   { code: "US", dialCode: "+1", name: "United States" },
